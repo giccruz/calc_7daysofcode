@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULADORA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;600;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="CSSbase.css">
+
+</head>
+<body>
+    <header aria-label="Masthead">
+        <h1>
+          <small>Trabalho de Padrões Web
+            <br>Prof. Márcio Araya
+            <br>Senac-DF
+          </small>
+          <span>CALCULADORA <br> Para 7DaysOfCode</span>
+        </h1>
+      </header>
+<main>
+    <article>
+    <fieldset>
+        <h4>Escolha a operação:</h4>
+        <select id="operacao">
+            <option>SOMA</option>
+            <option>SUBTRAÇÃO</option>
+            <option>MULTIPLICAÇÃO</option>
+            <option>DIVISÃO</option>
+        </select>
+    </fieldset>
+
+    <fieldset>
+    <h4> Digite os números</h4>
+    <input type="text" id="input-valor1" required placeholder="Valor">
+    <input type="text" id="input-valor2" required placeholder="Valor">
+    <input type="submit" id="submit-calcular" value="Calcular">
+    <input type="text" id="input-resultado" required placeholder="Resultado">
+    <input type="submit" id="submit-sair" value="Sair">
+    </fieldset>
+
+    <script>
+
+        var operacao = document.getElementById("operacao");
+        var numero1 = document.getElementById("input-valor1");
+        var numero2 = document.getElementById("input-valor2");
+        var calcular = document.getElementById("submit-calcular");
+        var resultado = document.getElementById("input-resultado");
+        var saida = document.getElementById("submit-sair");
+
+        function somar(){
+            return parseFloat(numero1.value) + parseFloat(numero2.value);
+        }
+
+        function diminuir(){
+            return parseFloat(numero1.value) - parseFloat(numero2.value);
+        }
+
+        function multiplicar(){
+            return parseFloat(numero1.value) * parseFloat(numero2.value);
+        }
+
+        function dividir(){
+            return parseFloat(numero1.value) / parseFloat(numero2.value);
+        }
+
+        function sair(){
+            alert("Até a próxima!");
+            window.location.reload();
+        }
+
+        function mostra(frase) {
+            resultado.value = frase;	
+        }
+
+        function calcula(){
+            switch (operacao.value) {
+                case 'SOMA':
+                    mostra(somar());
+                    break;
+                case 'SUBTRAÇÃO':
+                    mostra(diminuir());
+                    break;
+                case 'MULTIPLICAÇÃO':
+                    mostra(multiplicar());
+                    break;
+                case 'DIVISÃO':
+                    mostra(dividir());
+                    break;
+            }
+        }
+
+        calcular.onclick = calcula;
+        saida.onclick = sair;
+
+    </script>
+    </article>
+</main>
+    <footer>
+        <p> </p>
+        <p>Trabalho apresentado para a disciplina de Padrões Web, sob supervisão do professor Márcio Araya, como requisito de avaliação parcial referente ao 1° semestre do curso de Análise de Desenvolvimento de Sistemas/ Ciência de Dados, na Faculdade de Tecnologia e Inovação Senac-DF </p>
+        <p>jun/2023</p>
+        <p>Giovanna Castro da Cruz</p>
+      </footer>
+</body>
+</html>
